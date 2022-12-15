@@ -65,7 +65,8 @@ function game() {
     let playerWins = 0;
     let computerWins = 0;
 
-    for(let i = 0; i < 5; i++) {
+    // for(let i = 0; i < 5; i++) {
+        while(computerWins < 5 && playerWins <5) {
         
         let playerSelection = getPlayerChoice();
         let result = playRound(playerSelection,getComputerChoice());
