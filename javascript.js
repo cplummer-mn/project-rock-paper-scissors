@@ -1,5 +1,3 @@
-
-
 function getComputerChoice() {
     let num = Math.floor(Math.random() * 3);
     if(num === 0) {
@@ -15,12 +13,22 @@ function getComputerChoice() {
 
 }
 
-function getPlayerChoice() {
-    return  prompt('Rock, Paper or Scissors?');
-}
+const userScore = document.querySelector('#userScore');
+const cpuScore =  document.querySelector('#cpuScore');
+const info = document.querySelector('#info');
+const computerChoiceUI = document.querySelector('#computerChoice');
 
-getComputerChoice(); 
-console.log("done");
+let cpuUnitScore = 0;
+let userUnitScore = 0;
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.id, getComputerChoice());
+        console.log(button.id);
+    })
+});
+
 
 function playRound(playerSelection, computerSelection) {
 
@@ -31,71 +39,54 @@ function playRound(playerSelection, computerSelection) {
     console.log('Computer chose ' + computerSelection);
 
     if(playerSelection === computerSelection) {
-        return 'Draw! ' + playerSelection + ' ties with ' + computerSelection;
+        info.textContent = 'It\'s a draw! ' + playerSelection + ' ties with ' + computerSelection;
     }
     else if(playerSelection === 'Rock' && computerSelection === 'Paper') {
-        return 'You lose! Paper beats Rock'; 
+        computerChoiceUI.textContent = 'Paper';
+        info.textContent = 'You lose! Paper beats Rock'; 
+        cpuUnitScore++;
+        cpuScore.textContent = 'CPU Score: ' + cpuUnitScore;
     }
     else if(playerSelection === 'Rock' && computerSelection === 'Scissors') {
-        return 'You Win! Rock beats Scissors'; 
+        computerChoiceUI.textContent = 'Scissors';
+        info.textContent = 'You Win! Rock beats Scissors'; 
+        userUnitScore++;
+        userScore.textContent = 'Player Score: ' + userUnitScore;
     }
     else if(playerSelection === 'Paper' && computerSelection === 'Rock') {
-        return 'You Win! Paper beats Rock'; 
+        computerChoiceUI.textContent = 'Rock';
+        info.textContent =  'You Win! Paper beats Rock'; 
+        userUnitScore++;
+        userScore.textContent = 'Player Score: ' + userUnitScore;
     }
     else if(playerSelection === 'Paper' && computerSelection === 'Scissors') {
-        return 'You lose! Scissors beats Paper'; 
+        computerChoiceUI.textContent = 'Scissors';
+        info.textContent = 'You lose! Scissors beats Rock'; 
+        cpuUnitScore++;
+        cpuScore.textContent = 'CPU Score: ' + cpuUnitScore; 
     }
     else if(playerSelection === 'Scissors' && computerSelection === 'Rock') {
-        return 'You lose! Rock beats Scissors'; 
+        computerChoiceUI.textContent = 'Rock';
+        info.textContent = 'You lose! Rock beats Scissors'; 
+        cpuUnitScore++;
+        cpuScore.textContent = 'CPU Score: ' + cpuUnitScore; 
     }
     else if(playerSelection === 'Scissors' && computerSelection === 'Paper') {
-        return 'You Win! Scissors beats Paper'; 
+        computerChoiceUI.textContent = 'Paper';
+        info.textContent =  'You Win! Scissors beats Paper'; 
+        userUnitScore++;
+        userScore.textContent = 'Player Score: ' + userUnitScore;
     }
-    else {
-        return 'It looks like the Player input is blank or invalid';
+
+    if(userUnitScore >= 5) {
+        info.textContent = 'You win!';
     }
+    else if(cpuUnitScore >= 5) {
+        info.textContent = 'You lose!';
+    }
+
 }
 
 
-// const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection,computerSelection));
 
-function game() {
-
-    let playerWins = 0;
-    let computerWins = 0;
-
-    // for(let i = 0; i < 5; i++) {
-        while(computerWins < 5 && playerWins <5) {
         
-        let playerSelection = getPlayerChoice();
-        let result = playRound(playerSelection,getComputerChoice());
-        console.log(result);
-        if (result.charAt(0) ===  'D') {
-            console.log('Neither player gains points! Player score: ' + playerWins + ' Computer score: ' + computerWins)
-        }
-        else if (result.charAt(4) === 'W') {
-            playerWins++;
-            console.log('Player gains one point! Player score: ' + playerWins + ' Computer score: ' + computerWins)
-        }
-        else if (result.charAt(0) === 'I') {
-            console.log('Invalid Player choice, no points awarded');
-        }
-        else {
-            computerWins++;
-            console.log('Computer gains one point! Player score: ' + playerWins + ' Computer score: ' + computerWins)
-        }
-    }
-
-    if(playerWins > computerWins) {
-        console.log('Congrats! The player has won!');
-    }
-    else if (playerWins < computerWins) {
-        console.log('The computer has won, better luck next time!');
-    }
-    else {
-        console.log('Tie game! Try again!')
-    }
-}
-
-game();
