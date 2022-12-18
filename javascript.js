@@ -17,6 +17,8 @@ const userScore = document.querySelector('#userScore');
 const cpuScore =  document.querySelector('#cpuScore');
 const info = document.querySelector('#info');
 const computerChoiceUI = document.querySelector('#computerChoice');
+const computerChoiceImage = document.querySelector('#computerChoiceImage');
+const winLoseInfo = document.querySelector('#winLoseInfo');
 
 let cpuUnitScore = 0;
 let userUnitScore = 0;
@@ -29,7 +31,6 @@ buttons.forEach((button) => {
     })
 });
 
-
 function playRound(playerSelection, computerSelection) {
 
     playerSelection = playerSelection.toLowerCase();
@@ -40,15 +41,19 @@ function playRound(playerSelection, computerSelection) {
 
     if(playerSelection === computerSelection) {
         info.textContent = 'It\'s a draw! ' + playerSelection + ' ties with ' + computerSelection;
+        computerChoiceUI.textContent = computerSelection;
+        computerChoiceImage.src = 'images/' + computerSelection + '.png';
     }
     else if(playerSelection === 'Rock' && computerSelection === 'Paper') {
         computerChoiceUI.textContent = 'Paper';
+        computerChoiceImage.src = 'images/' + computerSelection + '.png';
         info.textContent = 'You lose! Paper beats Rock'; 
         cpuUnitScore++;
         cpuScore.textContent = 'CPU Score: ' + cpuUnitScore;
     }
     else if(playerSelection === 'Rock' && computerSelection === 'Scissors') {
         computerChoiceUI.textContent = 'Scissors';
+        computerChoiceImage.src = 'images/' + computerSelection + '.png';
         info.textContent = 'You Win! Rock beats Scissors'; 
         userUnitScore++;
         userScore.textContent = 'Player Score: ' + userUnitScore;
@@ -58,9 +63,11 @@ function playRound(playerSelection, computerSelection) {
         info.textContent =  'You Win! Paper beats Rock'; 
         userUnitScore++;
         userScore.textContent = 'Player Score: ' + userUnitScore;
+        computerChoiceImage.src = 'images/' + computerSelection + '.png';
     }
     else if(playerSelection === 'Paper' && computerSelection === 'Scissors') {
         computerChoiceUI.textContent = 'Scissors';
+        computerChoiceImage.src = 'images/' + computerSelection + '.png';
         info.textContent = 'You lose! Scissors beats Rock'; 
         cpuUnitScore++;
         cpuScore.textContent = 'CPU Score: ' + cpuUnitScore; 
@@ -70,19 +77,22 @@ function playRound(playerSelection, computerSelection) {
         info.textContent = 'You lose! Rock beats Scissors'; 
         cpuUnitScore++;
         cpuScore.textContent = 'CPU Score: ' + cpuUnitScore; 
+        computerChoiceImage.src = 'images/' + computerSelection + '.png';
     }
     else if(playerSelection === 'Scissors' && computerSelection === 'Paper') {
         computerChoiceUI.textContent = 'Paper';
+        computerChoiceImage.src = 'images/' + computerSelection + '.png';
         info.textContent =  'You Win! Scissors beats Paper'; 
         userUnitScore++;
         userScore.textContent = 'Player Score: ' + userUnitScore;
     }
 
     if(userUnitScore >= 5) {
-        info.textContent = 'You win!';
+        winLoseInfo.textContent = 'You win!';
+        
     }
     else if(cpuUnitScore >= 5) {
-        info.textContent = 'You lose!';
+        winLoseInfo.textContent = 'You lose!';
     }
 
 }

@@ -1,8 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
     display: flex;
     flex-direction: column;
+    font-family: Roboto, sans-serif;
 }
 
 .header {
@@ -16,7 +17,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 45px;
     
 }
 
@@ -28,10 +29,17 @@ body {
     margin-top: 3%;
 }
 
+#imgDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+}
+
 #computerChoice {
     display: flex;
     justify-content: center;
-    margin: 64px;
+    margin: 8px;
     font-weight: bold;
     font-size: 40px;
 }
@@ -45,5 +53,28 @@ button {
 }
 
 button:hover {
-    background-color: rgb(221, 111, 203);
+    background-color: rgb(245, 182, 198);
+}
+
+#userScore {
+    border: 4px solid blue;
+    padding: 8px;
+    font-weight: bold;
+}
+
+#cpuScore {
+    border: 4px solid rgb(223, 0, 74);
+    padding: 8px;
+    font-weight: bold;
+}
+
+#info {
+    font-weight: bolder;
+}
+
+#winLoseInfo {
+    font-weight: bolder;
+    font-size: 125%;
+    text-align: center;
+    margin: 8px;
 }

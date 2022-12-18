@@ -10,14 +10,20 @@
 <body>
     <h1 class="header">Rock, Paper, Scissors!</h1>
     <div class="buttonContainer">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <button id="rock"><img src='images/Rock.png' height="65%">Rock</button>
+        <button id="paper"><img src='images/Paper.png' height="65%">Paper</button>
+        <button id="scissors"><img src='images/Scissors.png' height="65%">Scissors</button>
     </div>
     <div class="resultsContainer">
         <div id="userScore">Player Score: 0</div>
-        <div id="info">Time to play! Choose Rock, Paper or Scissors!</div>
+        <div id="infoContainer">
+            <div id="info">Time to play! Choose Rock, Paper or Scissors!</div>
+            <div id="winLoseInfo"></div>
+        </div>
         <div id="cpuScore">CPU Score: 0</div>
+    </div>
+    <div id='imgDiv'>
+        <img id="computerChoiceImage" src='images/Paper.png' height="125px" width="125px">
     </div>
     <div id="computerChoice">- Computer Choice -</div>
 </body>
