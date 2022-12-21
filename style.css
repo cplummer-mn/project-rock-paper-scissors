@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Indie+Flower&display=swap');
 
 body {
     display: flex;
     flex-direction: column;
-    font-family: Roboto, sans-serif;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Indie Flower', cursive;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
 }
 
 .header {
@@ -11,6 +20,10 @@ body {
     align-items: center;
     justify-content: center;
     color: palevioletred;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Indie Flower', cursive;
+    font-size: 64px;
+    font-weight: bolder;
 }
 
 .buttonContainer {
@@ -45,11 +58,15 @@ body {
 }
 
 button {
-    height: 150px;
-    width: 150px;
-    font-size: 24px;
+    height: 200px;
+    width: 200px;
+    font-size: 32px;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 48px;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Indie Flower', cursive;
+    margin: 0px;
+    background-color: rgb(196, 225, 226);
 }
 
 button:hover {
@@ -57,19 +74,25 @@ button:hover {
 }
 
 #userScore {
-    border: 4px solid blue;
+    border: 4px solid rgb(196, 225, 226);
     padding: 8px;
     font-weight: bold;
+    font-size: 24px;
+    border-radius: 32px;
 }
 
 #cpuScore {
     border: 4px solid rgb(223, 0, 74);
     padding: 8px;
     font-weight: bold;
+    font-size: 24px;
+    border-radius: 32px;
 }
 
 #info {
+    margin-top: 16px;
     font-weight: bolder;
+    font-size: 24px;
 }
 
 #winLoseInfo {
@@ -77,4 +100,28 @@ button:hover {
     font-size: 125%;
     text-align: center;
     margin: 8px;
+}
+
+#playAgainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid black;
+    height: 292px;
+    width: 445px;
+    background-color: rgb(196, 225, 226);
+    z-index: 0;
+    margin-top: 154px;
+    margin-bottom: -506px;
+    display:none;
+}
+
+button#btnPlayAgain {
+    height: 75px;
+}
+
+.infoDisplay {
+    font-size: 64px;
+    font-weight: bolder;
 }

@@ -6,26 +6,41 @@
     <title>Project: Rock, Paper, Scissors!</title>
     <script src="javascript.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Indie+Flower&display=swap" rel="stylesheet">
 
 <body>
-    <h1 class="header">Rock, Paper, Scissors!</h1>
-    <div class="buttonContainer">
-        <button id="rock"><img src='images/Rock.png' height="65%">Rock</button>
-        <button id="paper"><img src='images/Paper.png' height="65%">Paper</button>
-        <button id="scissors"><img src='images/Scissors.png' height="65%">Scissors</button>
-    </div>
-    <div class="resultsContainer">
-        <div id="userScore">Player Score: 0</div>
-        <div id="infoContainer">
-            <div id="info">Time to play! Choose Rock, Paper or Scissors!</div>
-            <div id="winLoseInfo"></div>
+    <div class="container">
+        <div id="playAgainContainer">
+            <div class="infoDisplay">You Win!</div>
+            <button id="btnPlayAgain">Play Again</button>
         </div>
-        <div id="cpuScore">CPU Score: 0</div>
+        <h1 class="header">Rock, Paper, Scissors!</h1>
+        <div class="buttonContainer">
+            <button id="rock">
+                <img src='images/Rock.png' height="64%">Rock
+            </button>
+            <button id="paper">
+                <img src='images/Paper.png' height="65%">Paper
+            </button>
+            <button id="scissors">
+                <img src='images/Scissors.png' height="65%">Scissors
+            </button>
+        </div>
+        <div class="resultsContainer">
+            <div id="userScore">Player Score: 0</div>
+            <div id="infoContainer">
+                <div id="info">Time to play! Choose Rock, Paper or Scissors!</div>
+                <div id="winLoseInfo"></div>
+            </div>
+            <div id="cpuScore">CPU Score: 0</div>
+        </div>
+        <div id='imgDiv'>
+            <img id="computerChoiceImage" src='images/Paper.png' height="125px" width="125px">
+        </div>
+        <div id="computerChoice">- Computer Choice -</div>
     </div>
-    <div id='imgDiv'>
-        <img id="computerChoiceImage" src='images/Paper.png' height="125px" width="125px">
-    </div>
-    <div id="computerChoice">- Computer Choice -</div>
 </body>
 
 </html>

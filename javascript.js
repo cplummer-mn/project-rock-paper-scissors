@@ -20,6 +20,9 @@ const computerChoiceUI = document.querySelector('#computerChoice');
 const computerChoiceImage = document.querySelector('#computerChoiceImage');
 const winLoseInfo = document.querySelector('#winLoseInfo');
 
+const playAgain = document.querySelector('#playAgainContainer');
+const infoDisplay = document.querySelector('.infoDisplay');
+
 let cpuUnitScore = 0;
 let userUnitScore = 0;
 
@@ -28,6 +31,13 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playRound(button.id, getComputerChoice());
         console.log(button.id);
+        if(button.id == "btnPlayAgain") {
+            playAgain.style.display = "none";
+            cpuUnitScore = 0;
+            userUnitScore = 0;
+            cpuScore.textContent = 'CPU Score: ' + cpuUnitScore;
+            userScore.textContent = 'Player Score: ' + userUnitScore;
+        }
     })
 });
 
@@ -88,11 +98,12 @@ function playRound(playerSelection, computerSelection) {
     }
 
     if(userUnitScore >= 5) {
-        winLoseInfo.textContent = 'You win!';
-        
+        infoDisplay.textContent = 'You win! ' + userUnitScore + ' - ' + cpuUnitScore;
+        playAgain.style.display = "flex";
     }
     else if(cpuUnitScore >= 5) {
-        winLoseInfo.textContent = 'You lose!';
+        infoDisplay.textContent = 'You lose! ' + cpuUnitScore + ' - ' + userUnitScore;
+        playAgain.style.display = "flex";
     }
 
 }
