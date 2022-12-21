@@ -6,6 +6,7 @@ body {
     flex-direction: column;
     font-family: 'Fjalla One', sans-serif;
     font-family: 'Indie Flower', cursive;
+    background-color: rgb(253, 248, 221);
 }
 
 .container {
@@ -67,6 +68,7 @@ button {
     font-family: 'Indie Flower', cursive;
     margin: 0px;
     background-color: rgb(196, 225, 226);
+    box-shadow: 2px 2px 2px rgb(71, 71, 71);
 }
 
 button:hover {
@@ -92,7 +94,7 @@ button:hover {
 #info {
     margin-top: 16px;
     font-weight: bolder;
-    font-size: 24px;
+    font-size: 32px;
 }
 
 #winLoseInfo {
@@ -124,4 +126,19 @@ button#btnPlayAgain {
 .infoDisplay {
     font-size: 64px;
     font-weight: bolder;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 8px;
+    background: rgba(0,0,0,0);
+    font-family: 'Indie Flower', cursive;
 }
